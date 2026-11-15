@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7f8fb"><title>Warehouse Management</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f5f6f9;--surface:#fff;--ink:#263247;--muted:#788397;--line:#e7eaf0;--blue:#315db7;--blue2:#4779d5;--gold:#c8a66a;--goldbg:#f7f1e6;--green:#21856e;--red:#c45160;--shadow:0 8px 24px rgba(37,55,88,.08),0 2px 5px rgba(37,55,88,.05);--radius:19px}
@@ -259,4 +259,5 @@ function sheet(sel,btn,label){let O=[...sel.options],big=O.length>8,back=documen
 function close(){back.remove();btn.classList.remove('open')}back.onclick=e=>{if(e.target===back)close()};if(q)q.oninput=draw;draw();document.body.appendChild(back);btn.classList.add('open');if(q&&window.innerHeight>600)q.focus()}
 function enh(){document.querySelectorAll('select.field:not([data-fp])').forEach(sel=>{sel.dataset.fp='1';let lab=sel.closest('label'),label=(lab&&lab.querySelector('.label')?lab.querySelector('.label').textContent:'Pilih'),b=document.createElement('button');b.type='button';b.className='fpb';b.innerHTML='<span></span>'+CH;b.firstChild.textContent=sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].text:'Pilih';b.onclick=e=>{e.preventDefault();e.stopPropagation();sheet(sel,b,label)};sel.style.display='none';sel.parentNode.insertBefore(b,sel)})}
 new MutationObserver(enh).observe(document.body,{childList:true,subtree:true});enh()})();
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
